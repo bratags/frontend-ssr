@@ -1,0 +1,54 @@
+{
+  "_chunk-CUzKK2BY.js": {
+    "file": "assets/chunks/chunk-CUzKK2BY.js",
+    "name": "LayoutDefault",
+    "imports": [
+      "_chunk-Dk7-vTfA.js"
+    ]
+  },
+  "_chunk-Dk7-vTfA.js": {
+    "file": "assets/chunks/chunk-Dk7-vTfA.js",
+    "name": "execHook"
+  },
+  "node_modules/vike/dist/esm/client/runtime-client-routing/entry.js": {
+    "file": "assets/entries/entry-client-routing.BDD3XE6Q.js",
+    "name": "entries/entry-client-routing",
+    "src": "node_modules/vike/dist/esm/client/runtime-client-routing/entry.js",
+    "isEntry": true,
+    "imports": [
+      "_chunk-Dk7-vTfA.js"
+    ],
+    "dynamicImports": [
+      "virtual:vike:pageConfigLazy:client:/pages/_error",
+      "virtual:vike:pageConfigLazy:client:/pages/bratag"
+    ]
+  },
+  "virtual:vike:pageConfigLazy:client:/pages/_error": {
+    "file": "assets/entries/pages_error.C8Pvr8cX.js",
+    "name": "entries/pages/_error",
+    "src": "virtual:vike:pageConfigLazy:client:/pages/_error",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_chunk-CUzKK2BY.js",
+      "_chunk-Dk7-vTfA.js"
+    ],
+    "assets": [
+      "assets/static/logo.DLJJsk-H.svg"
+    ]
+  },
+  "virtual:vike:pageConfigLazy:client:/pages/bratag": {
+    "file": "assets/entries/pages_bratag.CHibrOgp.js",
+    "name": "entries/pages/bratag",
+    "src": "virtual:vike:pageConfigLazy:client:/pages/bratag",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_chunk-CUzKK2BY.js",
+      "_chunk-Dk7-vTfA.js"
+    ],
+    "assets": [
+      "assets/static/logo.DLJJsk-H.svg"
+    ]
+  }
+}

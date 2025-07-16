@@ -2,36 +2,39 @@
 name: Rebuild Site Daily
 
 on:
-  schedule:
-    - cron: '0 3 * * *'  # Runs every day at 3:00 AM UTC
-  workflow_dispatch:     # Allows manual triggering from the GitHub UI
+    schedule:
+        - cron: '0 3 * * *' # Runs every day at 3:00 AM UTC
+    workflow_dispatch: # Allows manual triggering from the GitHub UI
 
+permissions:
+    id-token: write
+    pages: write
 jobs:
-  rebuild:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+    rebuild:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '20'
 
-      - name: Install dependencies
-        run: npm ci
+            - name: Install dependencies
+              run: npm ci
 
-      - name: Run prerender/build
-        run: npm run build
-        env:
-          VITE_APP_API_KEY: ${{ secrets.VITE_APP_API_KEY }}
+            - name: Run prerender/build
+              run: npm run build
+              env:
+                  VITE_APP_API_KEY: ${{ secrets.VITE_APP_API_KEY }}
 
-      - name: Deploy to GitHub Pages
-        uses: actions/configure-pages@v5
+            - name: Deploy to GitHub Pages
+              uses: actions/configure-pages@v5
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v3
+              with:
+                  path: ./dist
 
-      - name: Deploy
-        uses: actions/deploy-pages@v4
+            - name: Deploy
+              uses: actions/deploy-pages@v4

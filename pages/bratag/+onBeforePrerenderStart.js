@@ -11,7 +11,7 @@ const onBeforePrerenderStart = async () => {
         }
     }).then((res) => res.json())
 
-    return ids?.map((id) => `/bratag/@${id}`) || []
+    return ids?.map((id) => `/bratag/${id}`) || []
 }
 
 export { onBeforePrerenderStart }

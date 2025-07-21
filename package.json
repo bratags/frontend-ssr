@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "vike dev",
     "build": "vike build",
-    "build:dev": "NODE_TLS_REJECT_UNAUTHORIZED=0 vike build --mode dev",
+    "build:dev": "MODE=dev NODE_TLS_REJECT_UNAUTHORIZED=0 vike build --mode dev",
     "preview": "vike preview"
   },
   "dependencies": {

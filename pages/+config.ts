@@ -10,9 +10,9 @@ export default {
   Layout,
 
   // https://vike.dev/head-tags
-  title: "My Vike App",
-  description: "Demo showcasing Vike",
+  title: "Bratags Vike App",
+  description: "Static SSR rendering",
 
   extends: vikeVue as typeof vikeVue,
-  prerender: true,
+  prerender: true
 } satisfies Config;

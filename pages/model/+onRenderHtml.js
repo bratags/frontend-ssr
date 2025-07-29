@@ -13,7 +13,7 @@ export function onRenderHtml(pageContext) {
         ${dangerouslySkipEscape(headHtml)}
       </head>
       <body>
-        <div style="height: 100vh; width: 100vw; display: flex; align-items: center; justify-content: center; font-size: 3rem">${modelSlug}</div>
+        <div style="height: 100vh; width: 100vw; display: flex; align-items: center; justify-content: center; font-size: 3rem">🩱${modelSlug}</div>
       </body>
     </html>`
 

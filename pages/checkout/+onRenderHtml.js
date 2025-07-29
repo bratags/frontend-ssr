@@ -8,13 +8,14 @@ export function onRenderHtml(pageContext) {
         url: '',
         slug: ''
     }
+    const urlEncoded = encodeURIComponent(`https://bratags.com/checkout?url=${url}&slug=${slug}`)
 
     const documentHtml = escapeInject`<!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
         <title>Bratags Checkout ${url} - ${slug}</title>
-        <link rel="alternate" type="application/json+oembed" href="https://api.june07.com/v1/bratags/oEmbed?url=https://bratags.com/checkout?url=${url}&slug=${slug}" />
+        <link rel="alternate" type="application/json+oembed" href="https://api.june07.com/v1/bratags/oEmbed?url=${urlEncoded}" />
         ${dangerouslySkipEscape(headHtml)}
       </head>
       <body>

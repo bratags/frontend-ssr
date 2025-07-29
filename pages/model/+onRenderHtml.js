@@ -2,7 +2,7 @@ import { escapeInject, dangerouslySkipEscape } from 'vike/server'
 
 export function onRenderHtml(pageContext) {
     const { headHtml = '' } = pageContext
-    const modelSlug = pageContext.routeParams?.modelSlug
+    const modelSlug = pageContext.routeParams?.modelSlug || ''
 
     const documentHtml = escapeInject`<!DOCTYPE html>
     <html lang="en">

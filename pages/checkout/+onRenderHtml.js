@@ -2,13 +2,13 @@ import { escapeInject, dangerouslySkipEscape } from 'vike/server'
 
 export function onRenderHtml(pageContext) {
     const { headHtml = '', urlOriginal } = pageContext
+    const { urlEncodedUrl = '', slug = '' } = pageContext.routeParams
 
-    const u = new URL(`http://fake-origin${urlOriginal}`) // fake origin because urlOriginal is just path+query
-    const entries = Object.fromEntries(u.searchParams.entries())
-    const { url: urlEncodedUrl = '', slug = '' } = entries
     const decodedUrl = decodeURIComponent(urlEncodedUrl)
     const urlEncoded = encodeURIComponent(`https://bratags.com/checkout?url=${decodedUrl}&slug=${slug}`)
 
+    console.log('slug: ', slug)
+    console.log('decodedUrl: ', decodedUrl)
     console.log('originalUrl: ', urlOriginal)
     console.log('entries: ', entries)
     console.log('urlEncoded: ', urlEncoded)

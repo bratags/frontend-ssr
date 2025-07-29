@@ -25,7 +25,7 @@ const onBeforePrerenderStart = async () => {
             }
 
             const encodedUrl = encodeURIComponent(url)
-            const finalUrl = `/checkout?url=${encodedUrl}&slug=${slug}`
+            const finalUrl = `/checkout/${slug}/${encodedUrl}`
 
             console.log('finalUrl', finalUrl)
 

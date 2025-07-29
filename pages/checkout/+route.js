@@ -1,1 +1,1 @@
-export default '/checkout?url=@url&slug=@slug'
+export default '/checkout'

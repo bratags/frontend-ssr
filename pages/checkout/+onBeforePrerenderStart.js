@@ -18,10 +18,10 @@ const onBeforePrerenderStart = async () => {
             const { url, slug } = checkout
 
             if (!slug || slug == 'null') {
-                return null
+                return
             }
             if (!url || url == 'null') {
-                return null
+                return
             }
 
             return `/checkout?url=${url}&slug=${slug}`

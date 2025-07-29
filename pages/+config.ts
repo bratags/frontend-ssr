@@ -14,7 +14,5 @@ export default {
 	description: 'Static SSR rendering',
 
 	extends: vikeVue as typeof vikeVue,
-	prerender: {
-		partials: true,
-	},
+	prerender: true,
 } satisfies Config

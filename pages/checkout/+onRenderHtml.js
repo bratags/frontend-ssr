@@ -1,17 +1,16 @@
 import { escapeInject, dangerouslySkipEscape } from 'vike/server'
 
 export function onRenderHtml(pageContext) {
-    const { headHtml = '', urlOriginal } = pageContext
+    const { headHtml = '' } = pageContext
     const { urlEncodedUrl = '', slug = '' } = pageContext.routeParams
 
     const decodedUrl = decodeURIComponent(urlEncodedUrl)
     const urlEncoded = encodeURIComponent(`https://bratags.com/checkout?url=${decodedUrl}&slug=${slug}`)
 
     console.log('slug: ', slug)
-    console.log('decodedUrl: ', decodedUrl)
-    console.log('originalUrl: ', urlOriginal)
-    console.log('urlEncoded: ', urlEncoded)
     console.log('urlEncodedUrl: ', urlEncodedUrl)
+    console.log('decodedUrl: ', decodedUrl)
+    console.log('urlEncoded: ', urlEncoded)
 
 
     const documentHtml = escapeInject`<!DOCTYPE html>

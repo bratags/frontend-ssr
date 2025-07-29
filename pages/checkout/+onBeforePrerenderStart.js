@@ -25,8 +25,11 @@ const onBeforePrerenderStart = async () => {
             }
 
             const encodedUrl = encodeURIComponent(url)
+            const finalUrl = `/checkout?url=${encodedUrl}&slug=${slug}`
 
-            return `/checkout?url=${encodedUrl}&slug=${slug}`
+            console.log('finalUrl', finalUrl)
+
+            return finalUrl
         })?.filter((Boolean)) || []
     } catch (error) {
         console.error(error)

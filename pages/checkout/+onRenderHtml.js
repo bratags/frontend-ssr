@@ -9,6 +9,7 @@ export function onRenderHtml(pageContext) {
     const decodedUrl = decodeURIComponent(urlEncodedUrl)
     const urlEncoded = encodeURIComponent(`https://bratags.com/checkout?url=${decodedUrl}&slug=${slug}`)
 
+    console.log('originalUrl: ', urlOriginal)
     console.log('entries: ', entries)
     console.log('urlEncoded: ', urlEncoded)
     console.log('urlEncodedUrl: ', urlEncodedUrl)

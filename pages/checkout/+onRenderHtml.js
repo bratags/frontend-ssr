@@ -12,12 +12,12 @@ export function onRenderHtml(pageContext) {
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
-        <title>Bratags Checkout ${url} - ${slug}</title>
+        <title>Bratags Checkout ${decodedUrl} - ${slug}</title>
         <link rel="alternate" type="application/json+oembed" href="https://api.june07.com/v1/bratags/oEmbed?url=${urlEncoded}" />
         ${dangerouslySkipEscape(headHtml)}
       </head>
       <body>
-        <div style="height: 100vh; width: 100vw; display: flex; align-items: center; justify-content: center; font-size: 3rem">🧺 ${url} - ${slug}</div>
+        <div style="height: 100vh; width: 100vw; display: flex; align-items: center; justify-content: center; font-size: 3rem">🧺 ${decodedUrl} - ${slug}</div>
       </body>
     </html>`
 

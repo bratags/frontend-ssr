@@ -4,11 +4,9 @@ export function onRenderHtml(pageContext) {
     const { headHtml = '', urlOriginal } = pageContext
 
     const u = new URL(`http://fake-origin${urlOriginal}`) // fake origin because urlOriginal is just path+query
-    const { url, slug } = Object.fromEntries(u.searchParams.entries()) || {
-        url: '',
-        slug: ''
-    }
-    const urlEncoded = encodeURIComponent(`https://bratags.com/checkout?url=${url}&slug=${slug}`)
+    const { url: urlEncodedUrl = '', slug = '' } = Object.fromEntries(u.searchParams.entries())
+    const decodedUrl = decodeURIComponent(urlEncodedUrl)
+    const urlEncoded = encodeURIComponent(`https://bratags.com/checkout?url=${decodedUrl}&slug=${slug}`)
 
     const documentHtml = escapeInject`<!DOCTYPE html>
     <html lang="en">

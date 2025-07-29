@@ -4,9 +4,15 @@ export function onRenderHtml(pageContext) {
     const { headHtml = '', urlOriginal } = pageContext
 
     const u = new URL(`http://fake-origin${urlOriginal}`) // fake origin because urlOriginal is just path+query
-    const { url: urlEncodedUrl = '', slug = '' } = Object.fromEntries(u.searchParams.entries())
+    const entries = Object.fromEntries(u.searchParams.entries())
+    const { url: urlEncodedUrl = '', slug = '' } = entries
     const decodedUrl = decodeURIComponent(urlEncodedUrl)
     const urlEncoded = encodeURIComponent(`https://bratags.com/checkout?url=${decodedUrl}&slug=${slug}`)
+
+    console.log('entries: ', entries)
+    console.log('urlEncoded: ', urlEncoded)
+    console.log('urlEncodedUrl: ', urlEncodedUrl)
+
 
     const documentHtml = escapeInject`<!DOCTYPE html>
     <html lang="en">

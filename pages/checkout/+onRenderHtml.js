@@ -10,7 +10,6 @@ export function onRenderHtml(pageContext) {
     console.log('slug: ', slug)
     console.log('decodedUrl: ', decodedUrl)
     console.log('originalUrl: ', urlOriginal)
-    console.log('entries: ', entries)
     console.log('urlEncoded: ', urlEncoded)
     console.log('urlEncodedUrl: ', urlEncodedUrl)
 

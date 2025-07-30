@@ -16,9 +16,9 @@ function base64UrlDecode(base64UrlString) {
 }
 export function onRenderHtml(pageContext) {
     const { headHtml = '' } = pageContext
-    const { urlEncodedUrl = '', slug = '' } = pageContext.routeParams
+    const { url: encodedUrl = '', slug = '' } = pageContext.routeParams
 
-    const decodedUrl = base64UrlDecode(urlEncodedUrl)
+    const decodedUrl = base64UrlDecode(encodedUrl)
     const urlEncoded = encodeURIComponent(`https://bratags.com/checkout/?url=${decodedUrl}&slug=${slug}`)
 
 

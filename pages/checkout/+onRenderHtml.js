@@ -31,7 +31,9 @@ export function onRenderHtml(pageContext) {
         ${dangerouslySkipEscape(headHtml)}
       </head>
       <body>
-        <div style="height: 100vh; width: 100vw; display: flex; align-items: center; justify-content: center; font-size: 3rem">🧺 ${decodedUrl} - ${slug}</div>
+        <div style="height: 100vh; width: 100vw; display: flex; align-items: center; justify-content: center; font-size: 3rem; flex-direction: column; text-align: center">${slug}<br>
+            📦<a href="${urlEncoded}" target="_blank" rel="noopener noreferrer">${decodedUrl}</a>
+        </div>
       </body>
     </html>`
 

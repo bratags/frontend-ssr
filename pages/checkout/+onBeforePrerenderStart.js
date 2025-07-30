@@ -31,7 +31,7 @@ const onBeforePrerenderStart = async () => {
                 return
             }
 
-            const encodedUrl = base64UrlEncode(url)
+            const encodedUrl = base64UrlEncode(url.split('?')[0])
             const finalUrl = `/checkout/${slug}/${encodedUrl}`
 
             console.log('finalUrl', finalUrl)

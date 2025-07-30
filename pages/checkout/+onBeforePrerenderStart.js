@@ -3,6 +3,13 @@ const {
     VITE_APP_API_KEY
 } = process.env
 
+function base64UrlEncode(str) {
+    return Buffer.from(str)
+        .toString('base64')
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=+$/, '')
+}
 const onBeforePrerenderStart = async () => {
     try {
         const apiUrl = MODE !== 'dev' ? 'https://api.june07.com/v1/bratags/checkouts' : 'https://api.dev.june07.com/v1/bratags/checkouts'
@@ -24,7 +31,7 @@ const onBeforePrerenderStart = async () => {
                 return
             }
 
-            const encodedUrl = encodeURIComponent(url)
+            const encodedUrl = base64UrlEncode(url)
             const finalUrl = `/checkout/${slug}/${encodedUrl}`
 
             console.log('finalUrl', finalUrl)

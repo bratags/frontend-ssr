@@ -1,16 +1,25 @@
 import { escapeInject, dangerouslySkipEscape } from 'vike/server'
 
+function base64UrlDecode(base64UrlString) {
+    // Replace URL-safe chars back to standard base64 chars
+    let base64 = base64UrlString
+        .replace(/-/g, '+')
+        .replace(/_/g, '/')
+
+    // Pad with '=' chars if needed (base64 length must be multiple of 4)
+    while (base64.length % 4) {
+        base64 += '='
+    }
+
+    // Decode base64 to a UTF-8 string
+    return Buffer.from(base64, 'base64').toString('utf-8')
+}
 export function onRenderHtml(pageContext) {
     const { headHtml = '' } = pageContext
     const { urlEncodedUrl = '', slug = '' } = pageContext.routeParams
 
-    const decodedUrl = decodeURIComponent(urlEncodedUrl)
+    const decodedUrl = base64UrlDecode(urlEncodedUrl)
     const urlEncoded = encodeURIComponent(`https://bratags.com/checkout?url=${decodedUrl}&slug=${slug}`)
-
-    console.log('slug: ', slug)
-    console.log('urlEncodedUrl: ', urlEncodedUrl)
-    console.log('decodedUrl: ', decodedUrl)
-    console.log('urlEncoded: ', urlEncoded)
 
 
     const documentHtml = escapeInject`<!DOCTYPE html>

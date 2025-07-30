@@ -19,7 +19,7 @@ export function onRenderHtml(pageContext) {
     const { urlEncodedUrl = '', slug = '' } = pageContext.routeParams
 
     const decodedUrl = base64UrlDecode(urlEncodedUrl)
-    const urlEncoded = encodeURIComponent(`https://bratags.com/checkout?url=${decodedUrl}&slug=${slug}`)
+    const urlEncoded = encodeURIComponent(`https://bratags.com/checkout/?url=${decodedUrl}&slug=${slug}`)
 
 
     const documentHtml = escapeInject`<!DOCTYPE html>

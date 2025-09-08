@@ -16,7 +16,7 @@ export default defineConfig({
 		md({}),
 	],
 	server: {
-		port: 3033,
+		port: 8543,
 		hmr: {
 			host: 'dev-bratags-embed.keycloak.june07.com',
 		},

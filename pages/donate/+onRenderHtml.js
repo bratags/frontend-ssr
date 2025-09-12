@@ -2,11 +2,8 @@ import fs from 'fs'
 import path from 'path'
 
 export function onRenderHtml() {
-    // Read HTML file
-    const htmlFilePath = path.resolve('./index.html')
+    const htmlFilePath = path.join(process.cwd(), 'index.html')
     const documentHtml = fs.readFileSync(htmlFilePath, 'utf-8')
 
-    return {
-        documentHtml
-    }
+    return { documentHtml }
 }

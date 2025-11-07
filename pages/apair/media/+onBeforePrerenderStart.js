@@ -1,10 +1,7 @@
-import { getEnv } from '../../../env.js'
-
-const MODE = getEnv('MODE', 'dev')
-const VITE_APP_API_KEY = getEnv('VITE_APP_API_KEY')
+const { MODE, VITE_APP_API_KEY } = process.env
 
 const onBeforePrerenderStart = async () => {
-    const url = MODE !== 'dev' ? 'https://api.june07.com/v1/bratags/apair/ids' : 'https://api.dev.june07.com/v1/bratags/apair/ids'
+	const url = MODE !== 'dev' ? 'https://api.june07.com/v1/bratags/apair/ids' : 'https://api.dev.june07.com/v1/bratags/apair/ids'
 	const allIds = []
 	let cursor = 0
 
@@ -21,12 +18,11 @@ const onBeforePrerenderStart = async () => {
 				break
 			}
 
-            console.log(`res: ${res}`)
-
+			console.log(`res: ${res}`)
 
 			const { ids = [], cursor: nextCursor } = await res.json()
 
-            console.log(`Fetched ${ids.length} IDs, cursor: ${nextCursor}`)
+			console.log(`Fetched ${ids.length} IDs, cursor: ${nextCursor}`)
 
 			allIds.push(...ids.filter(Boolean))
 
@@ -41,7 +37,7 @@ const onBeforePrerenderStart = async () => {
 		console.error('Error fetching IDs:', err)
 	}
 
-	return allIds.map(id => `/apair/media/${id}`)
+	return allIds.map(id => `/apair/media/${id}`) || []
 }
 
 export { onBeforePrerenderStart }

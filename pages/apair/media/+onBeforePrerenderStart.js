@@ -1,4 +1,4 @@
-import { getEnv } from '../../env.js'
+import { getEnv } from '../../../env.js'
 
 const MODE = getEnv('MODE', 'dev')
 const VITE_APP_API_KEY = getEnv('VITE_APP_API_KEY')

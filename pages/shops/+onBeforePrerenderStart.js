@@ -13,7 +13,7 @@ const onBeforePrerenderStart = async () => {
     }).then((res) => res.json())
 
     // parse JSON values and store in map
-    shops.forEach((shop) => {
+    shops?.forEach((shop) => {
         try {
             shopMap.set(shop.field, { ...JSON.parse(shop.value), id: shop.field })
         } catch {

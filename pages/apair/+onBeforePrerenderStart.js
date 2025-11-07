@@ -37,7 +37,7 @@ const onBeforePrerenderStart = async () => {
 		console.error('Error fetching IDs:', err)
 	}
 
-	return allIds.map(id => `/apair/media/${id}`) || []
+	return allIds.map(id => `/apair/${id}`) || []
 }
 
 export { onBeforePrerenderStart }

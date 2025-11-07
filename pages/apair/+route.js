@@ -1,1 +1,1 @@
-export default '/apair/media/@apairId'
+export default '/apair/@apairId'

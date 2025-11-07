@@ -1,10 +1,10 @@
 import { getEnv } from '../../env.js'
 
+const MODE = getEnv('MODE', 'dev')
 const VITE_APP_API_KEY = getEnv('VITE_APP_API_KEY')
-const VITE_APP_API_SERVER = getEnv('VITE_APP_API_SERVER')
 
 const onBeforePrerenderStart = async () => {
-	const url = `${VITE_APP_API_SERVER}/v1/bratags/apair/ids`
+    const url = MODE !== 'dev' ? 'https://api.june07.com/v1/bratags/apair/ids' : 'https://api.dev.june07.com/v1/bratags/apair/ids'
 	const allIds = []
 	let cursor = 0
 

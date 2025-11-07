@@ -21,6 +21,9 @@ const onBeforePrerenderStart = async () => {
 				break
 			}
 
+            console.log(`res: ${res}`)
+
+
 			const { ids = [], cursor: nextCursor } = await res.json()
 
             console.log(`Fetched ${ids.length} IDs, cursor: ${nextCursor}`)

@@ -1,16 +1,18 @@
 {
   "scripts": {
-    "dev": "vike dev --host 0.0.0.0",
+    "dev": "MODE=dev NODE_TLS_REJECT_UNAUTHORIZED=0 vike dev --host 0.0.0.0",
     "build": "vike build",
     "build:dev": "MODE=dev NODE_TLS_REJECT_UNAUTHORIZED=0 vike build --mode dev",
     "preview": "vike preview"
   },
   "dependencies": {
-    "vike": "^0.4.235",
     "@vitejs/plugin-vue": "^6.0.0",
     "@vue/compiler-sfc": "^3.5.17",
     "@vue/server-renderer": "^3.5.17",
+    "file-type": "^21.0.0",
+    "tweetnacl": "^1.0.3",
     "unplugin-vue-markdown": "^28.3.1",
+    "vike": "^0.4.235",
     "vike-vue": "^0.9.2",
     "vue": "^3.5.17"
   },

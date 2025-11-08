@@ -14,7 +14,7 @@ import { useObjectURLManager } from '@/composables/useObjectURLManager.composabl
 import { decryptFilePayload } from '@/utilities/decryptFilePayload.util'
 import ProgressBoobs from './ProgressBoobs.vue'
 
-const { VITE_APP_API_SERVER } = import.meta.env
+const VITE_APP_API_SERVER = process.env.VITE_APP_API_SERVER
 const props = defineProps({
 	ssr: Boolean,
 	apairId: String,

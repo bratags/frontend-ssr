@@ -7,7 +7,6 @@ const onBeforePrerenderStart = async () => {
 
 	try {
 		while (true) {
-            console.log(`url: ${url}, cursor: ${cursor}, VITE_APP_API_KEY: ${VITE_APP_API_KEY}`)
 			const res = await fetch(`${url}?cursor=${cursor}`, {
 				headers: {
 					'x-apikey': VITE_APP_API_KEY,
@@ -19,11 +18,7 @@ const onBeforePrerenderStart = async () => {
 				break
 			}
 
-			console.log(`res: ${JSON.stringify(res)}`)
-
 			const { ids = [], cursor: nextCursor } = await res.json()
-
-			console.log(`Fetched ${ids.length} IDs, cursor: ${nextCursor}`)
 
 			allIds.push(...ids.filter(Boolean))
 

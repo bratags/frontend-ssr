@@ -17,7 +17,6 @@ import ProgressBoobs from './ProgressBoobs.vue'
 const props = defineProps({
 	ssr: Boolean,
 	apairId: String,
-    apiServer: String
 })
 const $api = !props.ssr && inject('$api')
 const { createObjectURL } = useObjectURLManager()
@@ -93,7 +92,7 @@ async function init() {
 	let apair
 
 	if (props.ssr) {
-		const response = (await fetch(`${props.apiServer}/v1/bratags/apair/${baseId}`).then(res => res.json())) || {}
+		const response = (await fetch(`https://api.june07.com/v1/bratags/apair/${baseId}`).then(res => res.json())) || {}
 
 		apair = response.apair
 	} else {

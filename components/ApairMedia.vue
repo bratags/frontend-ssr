@@ -107,7 +107,7 @@ async function init() {
 
 	content.value = og?.content?.find(c => /\/nftMedia/.test(c.url))
 
-	if (props.ssr) {
+	if (props.ssr && content.value) {
 		await decrypt('nftMedia', content.value)
 	}
 }

@@ -18,9 +18,9 @@ const onBeforePrerenderStart = async () => {
 				break
 			}
 
-			const { ids = [], cursor: nextCursor } = await res.json()
+			const { apairIds = [], cursor: nextCursor } = await res.json()
 
-			allIds.push(...ids.filter(Boolean))
+			allIds.push(...apairIds.filter(Boolean))
 
 			// stop if no more pages
 			if (!nextCursor || nextCursor === '0' || nextCursor === 0) {

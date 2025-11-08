@@ -5,9 +5,12 @@ import ApairMedia from '@/components/ApairMedia.vue'
 
 export default async function onRenderHtml(pageContext) {
 	// 1. Create a Vue SSR app
-	const app = createSSRApp(ApairMedia, {
-        ssr: true,
-		apairId: pageContext.routeParams.apairId,
+	const app = createSSRApp({
+		render: () =>
+			h(ApairMedia, {
+				ssr: true,
+				apairId: pageContext.routeParams.apairId,
+			}),
 	})
 
 	// 2. Render component to HTML string

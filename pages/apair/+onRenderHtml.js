@@ -1,9 +1,10 @@
+import { getEnv } from '../../env.js'
 import { escapeInject, dangerouslySkipEscape } from 'vike/server'
 import { renderToString } from '@vue/server-renderer'
 import { createSSRApp, h } from 'vue'
 import ApairMedia from '@/components/ApairMedia.vue'
 
-const { VITE_APP_API_SERVER } = process.env
+const VITE_APP_API_SERVER = getEnv('VITE_APP_API_SERVER')
 
 export default async function onRenderHtml(pageContext) {
 	// 1. Create a Vue SSR app

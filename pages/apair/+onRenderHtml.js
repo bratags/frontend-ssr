@@ -3,6 +3,8 @@ import { renderToString } from '@vue/server-renderer'
 import { createSSRApp, h } from 'vue'
 import ApairMedia from '@/components/ApairMedia.vue'
 
+const VITE_APP_API_SERVER = (import.meta && import.meta.env && import.meta.env.VITE_APP_API_SERVER) || process.env.VITE_APP_API_SERVER
+
 export default async function onRenderHtml(pageContext) {
 	// 1. Create a Vue SSR app
 	const app = createSSRApp({
@@ -10,6 +12,7 @@ export default async function onRenderHtml(pageContext) {
 			h(ApairMedia, {
 				ssr: true,
 				apairId: pageContext.routeParams.apairId,
+				apiServer: VITE_APP_API_SERVER,
 			}),
 	})
 

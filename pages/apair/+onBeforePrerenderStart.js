@@ -20,7 +20,7 @@ const onBeforePrerenderStart = async () => {
 
 			const { apairIds = [], cursor: nextCursor } = await res.json()
 
-			allIds.push(...apairIds.filter(Boolean))
+			allIds.push(...apairIds.filter(Boolean).map(id => id.replace(/^bratags:apair:id:/, '')))
 
 			// stop if no more pages
 			if (!nextCursor || nextCursor === '0' || nextCursor === 0) {

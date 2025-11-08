@@ -14,10 +14,10 @@ import { useObjectURLManager } from '@/composables/useObjectURLManager.composabl
 import { decryptFilePayload } from '@/utilities/decryptFilePayload.util'
 import ProgressBoobs from './ProgressBoobs.vue'
 
-const { VITE_APP_API_SERVER } = import.meta.env
 const props = defineProps({
 	ssr: Boolean,
 	apairId: String,
+    apiServer: String
 })
 const $api = !props.ssr && inject('$api')
 const { createObjectURL } = useObjectURLManager()
@@ -93,7 +93,7 @@ async function init() {
 	let apair
 
 	if (props.ssr) {
-		const response = (await fetch(`${VITE_APP_API_SERVER}/v1/bratags/apair/${baseId}`).then(res => res.json())) || {}
+		const response = (await fetch(`${props.apiServer}/v1/bratags/apair/${baseId}`).then(res => res.json())) || {}
 
 		apair = response.apair
 	} else {

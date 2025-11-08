@@ -1,6 +1,6 @@
 import { escapeInject, dangerouslySkipEscape } from 'vike/server'
 import { renderToString } from '@vue/server-renderer'
-import { createSSRApp } from 'vue'
+import { createSSRApp, h } from 'vue'
 import ApairMedia from '@/components/ApairMedia.vue'
 
 export default async function onRenderHtml(pageContext) {

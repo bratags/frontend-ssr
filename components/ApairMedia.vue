@@ -1,8 +1,7 @@
 <template>
 	<div class="d-flex align-center justify-center">
 		<img v-if="content?.image" width="100%" height="100%" :src="content.image" />
-		<img v-else-if="content?.url && !props.ssr" height="100%" width="100%" src="/andrew-kliatskyi-PKCcowPZpDc-unsplash.webp" v-intersect.once="() => decrypt('nftMedia', content)" />
-        <img v-else-if="content?.url && props.ssr" height="100%" width="100%" src="./assets/andrew-kliatskyi-PKCcowPZpDc-unsplash.webp" />
+		<img v-else-if="content?.url && !ssr" height="100%" width="100%" src="/andrew-kliatskyi-PKCcowPZpDc-unsplash.webp" v-intersect.once="() => decrypt('nftMedia', content)" />
 		<progress-boobs v-else-if="!ssr" side="right" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)" />
 	</div>
 </template>

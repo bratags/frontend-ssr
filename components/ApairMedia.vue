@@ -1,7 +1,8 @@
 <template>
 	<div class="d-flex align-center justify-center">
 		<img v-if="content?.image" width="100%" height="100%" :src="content.image" />
-		<img v-else-if="content?.url" height="100%" width="100%" :src="`${props.ssr ? '/assets' : ''}/andrew-kliatskyi-PKCcowPZpDc-unsplash.webp`" v-intersect.once="() => decrypt('nftMedia', content)" />
+		<img v-else-if="content?.url && !props.ssr" height="100%" width="100%" src="/andrew-kliatskyi-PKCcowPZpDc-unsplash.webp" v-intersect.once="() => decrypt('nftMedia', content)" />
+        <img v-else-if="content?.url && props.ssr" height="100%" width="100%" src="./assets/andrew-kliatskyi-PKCcowPZpDc-unsplash.webp" />
 		<progress-boobs v-else-if="!ssr" side="right" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)" />
 	</div>
 </template>
@@ -19,7 +20,7 @@ const props = defineProps({
 	ssr: Boolean,
 	apairId: String,
 })
-const $api = inject('$api')
+const $api = !props.ssr && inject('$api')
 const { createObjectURL } = useObjectURLManager()
 const src = ref()
 const content = ref()

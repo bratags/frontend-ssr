@@ -89,7 +89,7 @@ async function decrypt(side, payload, index = 0) {
 async function init() {
     const apairIdParam = !props.ssr && document.location.pathname.match(/\/apair\/media\/([^\/]+)$/)?.[1]
     const apairId = props.apairId || apairIdParam
-    const semis = apairId.findAll(':').length
+    const semis = apairId.split(':').length - 1
 	const [_, baseId, serial] = semis > 2 ? apairId.match(/(.*):(\d+)$/) : [undefined, apairId, 0]
 	let apair
 

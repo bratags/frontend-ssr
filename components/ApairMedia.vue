@@ -17,7 +17,7 @@ import ProgressBoobs from './ProgressBoobs.vue'
 const props = defineProps({
 	ssr: Boolean,
 	apairId: String,
-    apiServer: String
+	apiServer: String,
 })
 const $api = !props.ssr && inject('$api')
 const { createObjectURL } = useObjectURLManager()
@@ -88,7 +88,7 @@ async function decrypt(side, payload, index = 0) {
 	}
 }
 async function init() {
-    const apairIdParam = !props.ssr && document.location.pathname.match(/\/apair\/media\/([^\/]+)$/)?.[1]
+	const apairIdParam = !props.ssr && document.location.pathname.match(/\/apair\/media\/([^\/]+)$/)?.[1]
 	const [_, baseId, serial] = (props.apairId || apairIdParam)?.match(/(.*):(\d+)$/)
 	let apair
 
